@@ -1,0 +1,4 @@
+[core]
+    remote = pikaremote
+['remote "pikaremote"']
+    url = gs://mlops-our-vigil-473719-c2/remote_repo
