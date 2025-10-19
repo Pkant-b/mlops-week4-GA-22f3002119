@@ -2,9 +2,11 @@ name: Model-CI
 
 on:
   push:
-    branches: [ master, dev ]
+    branches: 
+      - dev
   pull_request:
-    branches: [ master ]
+    branches:
+      - master
 
 permissions:
   contents: write
@@ -41,13 +43,16 @@ jobs:
 
       - name: Run Pytest and Generate Artifacts
         run: |
-          pytest
+          pytest -v > test.txt
 
       - name: Create CML report
         env:
           REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          echo "Pytest Results" > report.md          
+          echo "Pytest Results" > report.md
+          echo "\'\'\'" >> report.md    
+          cat test.txt >> report.md    
+          echo "\'\'\'" >> report.md
           echo "Model Evaluation" >> report.md
           echo "![Confusion Matrix](confusion_matrix.png)" >> report.md
 
