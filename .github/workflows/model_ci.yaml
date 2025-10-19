@@ -17,9 +17,6 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v5.0.0
 
-      - name: Setup CML (Continuous Machine Learning)
-        uses: iterative/setup-cml@v2.0.1
-
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
@@ -39,7 +36,7 @@ jobs:
         run: |
           dvc pull
 
-      - name: Run Pytest
+      - name: Run Pytest and Generate Artifacts
         run: |
           pytest
 
@@ -47,6 +44,8 @@ jobs:
         env:
           REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          echo 'hello' >> report.md
-          echo 'Hi' >> report.md
+          echo "Pytest Results" > report.md          
+          echo "Model Evaluation" >> report.md
+          echo "![Confusion Matrix](confusion_matrix.png)" >> report.md
+
           cml comment create report.md
