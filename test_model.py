@@ -14,9 +14,9 @@ def test_model_performance():
 
     pred = model.predict(X)
 
-    accuracy = accuracy_score(y, predictions)
+    accuracy = accuracy_score(y, pred)
     assert accuracy > 0.90, f"Model accuracy {accuracy:.2f} is below the threshold of 0.90."
-    cm = confusion_matrix(y, predictions)
+    cm = confusion_matrix(y, pred)
     plt.figure(figsize=(8, 6))
     sns.heatmap(cm, annot=True, fmt='d', cmap='Blues', xticklabels=model.classes_, yticklabels=model.classes_)
     plt.xlabel('Predicted')
