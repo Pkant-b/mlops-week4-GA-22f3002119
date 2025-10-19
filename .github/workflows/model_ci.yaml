@@ -39,9 +39,10 @@ jobs:
         run: |
           pytest --verbose > report.txt
 
-      - name: Create CML report on Pull Request
-        if: github.event_name == 'pull_request'
+      - name: Create CML report
         env:
-          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          cml comment create report.txt
+          echo 'hello' >> report.md
+          echo 'Hi' >> report.md
+          cml comment create report.md
