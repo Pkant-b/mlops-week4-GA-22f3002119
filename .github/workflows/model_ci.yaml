@@ -38,6 +38,7 @@ jobs:
       - name: Run Pytest
         run: |
           pytest -v &> report.txt
+          cat report.txt
 
       - name: Create CML report
         env:
