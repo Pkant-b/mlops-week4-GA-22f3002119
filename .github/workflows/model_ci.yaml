@@ -35,9 +35,9 @@ jobs:
         run: |
           dvc pull
 
-      - name: Run Pytest and create report
+      - name: Run Pytest
         run: |
-          pytest --verbose > report.txt
+          pytest -v &> report.txt
 
       - name: Create CML report
         env:
