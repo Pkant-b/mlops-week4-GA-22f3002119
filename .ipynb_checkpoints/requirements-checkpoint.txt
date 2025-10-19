@@ -11,7 +11,6 @@ asyncssh==2.21.1
 atpublic==6.0.2
 attrs==25.4.0
 billiard==4.2.2
-cachetools==6.2.1
 celery==5.5.3
 certifi==2025.10.5
 cffi==2.0.0
@@ -24,7 +23,6 @@ colorama==0.4.6
 configobj==5.0.9
 crc32c==2.8
 cryptography==46.0.3
-decorator==5.2.1
 dictdiffer==0.9.0
 diskcache==5.6.3
 distro==1.9.0
@@ -32,7 +30,6 @@ dpath==2.2.0
 dulwich==0.24.5
 dvc==3.63.0
 dvc-data==3.16.12
-dvc-gs==3.0.2
 dvc-http==2.32.0
 dvc-objects==5.1.2
 dvc-render==1.0.2
@@ -46,17 +43,8 @@ flufl.lock==8.2.0
 frozenlist==1.8.0
 fsspec==2025.9.0
 funcy==2.0
-gcsfs==2025.9.0
 gitdb==4.0.12
 GitPython==3.1.45
-google-api-core==2.26.0
-google-auth==2.41.1
-google-auth-oauthlib==1.2.2
-google-cloud-core==2.4.3
-google-cloud-storage==3.4.1
-google-crc32c==1.7.1
-google-resumable-media==2.7.2
-googleapis-common-protos==1.70.0
 grandalf==0.8
 gs==1.1.1
 gto==1.9.0
@@ -71,7 +59,6 @@ mdurl==0.1.2
 multidict==6.7.0
 networkx==3.4.2
 numpy==2.2.6
-oauthlib==3.3.1
 omegaconf==2.3.0
 orjson==3.11.3
 packaging==25.0
@@ -81,11 +68,7 @@ platformdirs==4.5.0
 pluggy==1.6.0
 prompt_toolkit==3.0.52
 propcache==0.4.1
-proto-plus==1.26.1
-protobuf==6.33.0
 psutil==7.1.0
-pyasn1==0.6.1
-pyasn1_modules==0.4.2
 pycparser==2.23
 pydantic==2.12.3
 pydantic-settings==2.11.0
@@ -102,9 +85,7 @@ python-dotenv==1.1.1
 pytz==2025.2
 PyYAML==6.0.3
 requests==2.32.5
-requests-oauthlib==2.0.0
 rich==14.2.0
-rsa==4.9.1
 ruamel.yaml==0.18.15
 ruamel.yaml.clib==0.2.14
 scikit-learn==1.7.2
