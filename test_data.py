@@ -2,7 +2,7 @@ import pandas as pd
 import pytest
 
 def test_data_columns():
-    data_path = '../data/data.csv'
+    data_path = 'data/data.csv'
     df = pd.read_csv(data_path)
 
     expected_columns = [
