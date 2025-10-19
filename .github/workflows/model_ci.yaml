@@ -1,0 +1,46 @@
+name: Model-CI
+
+on:
+  push:
+    branches: [master, dev]
+    pull_request:
+      branches:[master]
+
+jobs:
+  test-and-report:
+    runs-on: ubuntu-latest
+    steps:
+      -name: Chech out code
+      uses: actions/checkout@v3
+
+      -name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+
+     -name: Install dependencies
+     run: |
+       python -m pip install --upgrade pip
+       pip install -r requirements.txt
+       pip install "dvc[gcs]" pytest cml
+
+     -name: Authenticate with google cloud
+     uses: "google-github-actions/auth@v1"
+     with:
+       credentials_json: '${{ secrets.GCP_CREDENTIALS }}'
+        
+      -name: Pull data and model from DVC
+       run: |
+          dvc pull
+
+      - name: Run Pytest and create report
+        run: |
+          pytest --verbose > report.txt
+
+      - name: Create CML report on Pull Request
+        if: github.event_name == 'pull_request'
+        env:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          cml comment create report.txt
+
