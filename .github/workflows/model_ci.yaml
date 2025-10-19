@@ -13,6 +13,9 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v5.0.0
 
+      - name: Setup CML (Continuous Machine Learning)
+        uses: iterative/setup-cml@v2.0.1
+
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
